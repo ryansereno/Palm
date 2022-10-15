@@ -3,9 +3,9 @@ import classes from './Kanban.module.css'
 const Kanban = (props) => {
   return (
     <div className={classes.kanban}>
-      <Column />
-      <Column />
-      <Column />
+      <Column title="Upcoming" />
+      <Column title="In Progress" />
+      <Column title="Completed" />
     </div>
   );
 };

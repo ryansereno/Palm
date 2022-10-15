@@ -9,15 +9,3 @@ body {
 header {
   height: 150px;
 }
-.kanban {
-  height: calc(100% - 150px);
-  padding-left: 30px;
-  padding-right: 30px;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 30px;
-}
-.column {
-  background-color: lightblue;
-  margin-bottom: 50px;
-}

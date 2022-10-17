@@ -1,11 +1,11 @@
-import classes from './Column.module.css'
+import classes from './ColumnDropArea.module.css'
 import React from "react";
 
 const Col = ({ isOver, children }) => {
-    const className = isOver ? " highlight-region" : "";
+    const className = isOver ? classes["is-over"] : "";
 
     return (
-        <div >
+        <div className={`${classes["drop-area"]} ${className}`}>
             {children}
         </div>
     );

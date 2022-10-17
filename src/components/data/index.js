@@ -1,28 +1,29 @@
 const data = [{
     id: 1,
-    icon: "⭕️",
     status: "upcoming",
-    title: "Human Interest Form",
-    content: "Fill out human interest distribution form"
-}, {
+    title: "Pool Refinishing",
+    content: "Pool Refinishing"
+},{
     id: 2,
-    icon: "⭕️",
     status: "upcoming",
-    title: "Purchase present",
-    content: "Get an anniversary gift"
-}, {
+    title: "Balcony Renovation",
+    content: "Balcony Renovation"
+},{
     id: 3,
-    icon: "⭕️",
     status: "upcoming",
-    title: "Invest in investments",
-    content: "Call the bank to talk about investments"
-}, {
+    title: "Parking lot Paving",
+    content: "Parking lot Paving"
+},{
     id: 4,
-    icon: "⭕️",
-    status: "upcoming",
-    title: "Daily reading",
-    content: "Finish reading Intro to UI/UX"
-}];
+    status: "in progress",
+    title: "Exterior Painting",
+    content: "Exterior Painting"
+},{
+    id: 5,
+    status: "completed",
+    title: "Impact Window Installation",
+    content: "Impact Window Installation"
+},];
 
 const statuses = [{
     status: "upcoming",

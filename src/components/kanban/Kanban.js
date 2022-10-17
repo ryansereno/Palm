@@ -1,10 +1,9 @@
 import { useState } from "react";
-import kanbanClasses from "./Kanban.module.css";
+import classes from "./Kanban.module.css";
 import Item from "./Item";
 import DropWrapper from "./DropWrapper";
-import Col from "./Col";
+import ColumnDropArea from "./ColumnDropArea";
 import { data, statuses } from "../data/index";
-import columnClasses from './Column.module.css'
 
 const DndComponent = (props) => {
   const [items, setItems] = useState(data);
@@ -29,13 +28,13 @@ const DndComponent = (props) => {
   };
 
   return (
-    <div className={kanbanClasses.kanban}>
+    <div className={classes.kanban}>
       {statuses.map((s) => {
         return (
-          <div key={s.status} className={columnClasses.column}>
+          <div key={s.status} className={classes.column}>
             <h2 className={"col-header"}>{s.status.toUpperCase()}</h2>
             <DropWrapper onDrop={onDrop} status={s.status}>
-              <Col>
+              <ColumnDropArea>
                 {items
                   .filter((i) => i.status === s.status)
                   .map((i, idx) => {
@@ -49,7 +48,7 @@ const DndComponent = (props) => {
                       />
                     );
                   })}
-              </Col>
+              </ColumnDropArea>
             </DropWrapper>
           </div>
         );

@@ -1,6 +1,6 @@
 import React, { Fragment, useState, useRef } from "react";
 import { useDrag, useDrop } from "react-dnd";
-import Window from "./Window";
+import ModalWindow from "./Window";
 import ITEM_TYPE from "../data/types";
 import classes from "./Card.module.css";
 
@@ -13,11 +13,13 @@ const Item = ({ item, index, moveItem, status }) => {
       if (!ref.current) {
         return;
       }
-      const dragIndex = item.index;
-      const hoverIndex = index;
+      const dragIndex = item.index; //item is asigned an index value my the map function in the Kanban component
+      const hoverIndex = index; // index is the index of the item WITHIN the column
+
+      //initially index and item.index are the same
 
       if (dragIndex === hoverIndex) {
-        return;
+        return; //if item is unmoved, do nothing
       }
 
       const hoveredRect = ref.current.getBoundingClientRect();
@@ -26,11 +28,11 @@ const Item = ({ item, index, moveItem, status }) => {
       const hoverClientY = mousePosition.y - hoveredRect.top;
 
       if (dragIndex < hoverIndex && hoverClientY < hoverMiddleY) {
-        return;
+        return; //dont do anything unless item is dragged BELOW middle of adjacent item
       }
 
       if (dragIndex > hoverIndex && hoverClientY > hoverMiddleY) {
-        return;
+        return; //dont do anything unless item is dragged ABOVE middle of adjacent item
       }
       moveItem(dragIndex, hoverIndex);
       item.index = hoverIndex;
@@ -57,18 +59,13 @@ const Item = ({ item, index, moveItem, status }) => {
     <Fragment>
       <div
         ref={ref}
-        style={{ opacity: isDragging ? 0 : 1 }}
+        style={{ opacity: isDragging ? 0 : 1 }} //removes item from list while draggin
         className={classes.card}
         onClick={onOpen}
       >
-        <div
-          className={"color-bar"}
-          style={{ backgroundColor: status.color }}
-        />
-        <p className={"item-title"}>{item.content}</p>
-        <p className={"item-status"}>{item.icon}</p>
+        <h3>{item.title}</h3>
       </div>
-      <Window item={item} onClose={onClose} show={show} />
+      <ModalWindow item={item} onClose={onClose} show={show} />
     </Fragment>
   );
 };

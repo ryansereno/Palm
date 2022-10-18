@@ -6,7 +6,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/ryansereno/Palm/" >
-    <img src="images/Quartet logo black small.jpg" alt="Logo" width="250">
+    <img src="images/icon.png" alt="Logo" width="250">
   </a>
 
 <h1 align="center">Palm</h1>
@@ -25,7 +25,7 @@ Project Management for Condos
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 <div>
-    <img src="images/landing.png"  width="500"><img src="images/effects.png"  width="500">
+    <img src="images/landing.png"  width="500"><img src="images/landing.png"  width="500">
 
 
 

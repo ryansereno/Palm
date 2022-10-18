@@ -13,12 +13,12 @@ const Item = ({ item, index, moveItem, status }) => {
       if (!ref.current) {
         return;
       }
-      const dragIndex = item.index; //item is asigned an index value my the map function in the Kanban component
-      const hoverIndex = index; // index is the index of the item WITHIN the column
+      const dragFromIndex = item.index; //item is asigned an index value by the map function in the Kanban component
+      const hoverOverIndex = index; // index is the index of the item WITHIN the column
 
       //initially index and item.index are the same
 
-      if (dragIndex === hoverIndex) {
+      if (dragFromIndex === hoverOverIndex) {
         return; //if item is unmoved, do nothing
       }
 
@@ -27,15 +27,15 @@ const Item = ({ item, index, moveItem, status }) => {
       const mousePosition = monitor.getClientOffset();
       const hoverClientY = mousePosition.y - hoveredRect.top;
 
-      if (dragIndex < hoverIndex && hoverClientY < hoverMiddleY) {
+      if (dragFromIndex < hoverOverIndex && hoverClientY < hoverMiddleY) {
         return; //dont do anything unless item is dragged BELOW middle of adjacent item
       }
 
-      if (dragIndex > hoverIndex && hoverClientY > hoverMiddleY) {
+      if (dragFromIndex > hoverOverIndex && hoverClientY > hoverMiddleY) {
         return; //dont do anything unless item is dragged ABOVE middle of adjacent item
       }
-      moveItem(dragIndex, hoverIndex);
-      item.index = hoverIndex;
+      moveItem(dragFromIndex, hoverOverIndex, item);
+      item.index = hoverOverIndex;
     },
   });
 
@@ -43,7 +43,7 @@ const Item = ({ item, index, moveItem, status }) => {
     type: ITEM_TYPE,
     item: { type: ITEM_TYPE, ...item, index },
     collect: (monitor) => ({
-      isDragging: monitor.isDragging(),
+      isDragging: !!monitor.isDragging(),
     }),
   });
 
@@ -64,6 +64,8 @@ const Item = ({ item, index, moveItem, status }) => {
         onClick={onOpen}
       >
         <h3>{item.title}</h3>
+        <p>{index}</p>
+        <p>{status}</p>
       </div>
       <ModalWindow item={item} onClose={onClose} show={show} />
     </Fragment>

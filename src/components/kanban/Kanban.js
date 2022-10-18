@@ -5,26 +5,51 @@ import DropWrapper from "./DropWrapper";
 import ColumnDropArea from "./ColumnDropArea";
 import { data, statuses } from "../data/index";
 
-const DndComponent = (props) => {
+const Kanban = (props) => {
   const [items, setItems] = useState(data);
-  const onDrop = (item, monitor, status) => {
-    const mapping = statuses.find((si) => si.status === status);
 
+  //onDrop function changes the status of the item (moving between columns), but runs even if the status does not change
+  const onDrop = (item, monitor, status) => {
     setItems((prevState) => {
-      const newItems = prevState
-        .filter((i) => i.id !== item.id)
-        .concat({ ...item, status, icon: mapping.icon });
+      const newItems = [...prevState];
+      for (let i of newItems) {
+        if (i.id === item.id) {
+          i.status = status;
+        }
+      }
+
+      //const mapping = statuses.find((si) => si.status === status);
+      //prevState
+      //.filter((i) => i.id !== item.id)
+      //.concat({ ...item, status });
+
       return [...newItems];
     });
   };
 
-  const moveItem = (dragIndex, hoverIndex) => {
-    const item = items[dragIndex];
+  //runs while item is still being held
+  const moveItem = (dragFromIndex, hoverIndex, holdingItem) => {
+    console.log("drag from: ", dragFromIndex);
+    console.log("hover over: ", hoverIndex);
+
+    //chooses item that is picked up
+    //index of entire item list CANNOT be compared to the index of a column
+
+    //get the status that is being hovered over and move the item to that column while hovering
+    //const isOverStatus = {};
+
+    // reorders items
     setItems((prevState) => {
-      const newItems = prevState.filter((i, idx) => idx !== dragIndex);
-      newItems.splice(hoverIndex, 0, item);
+      //create new items array, exluding picked up item
+      const newItems = prevState.filter((i) => {
+        return i.id !== holdingItem.id;
+      });
+
+      //splice held item into new position in list
+      newItems.splice(hoverIndex, 0, holdingItem);
       return [...newItems];
     });
+    return;
   };
 
   return (
@@ -38,13 +63,13 @@ const DndComponent = (props) => {
                 {items
                   .filter((i) => i.status === s.status)
                   .map((i, idx) => {
-                    return(
+                    return (
                       <Item
                         key={i.id}
                         item={i}
                         index={idx}
                         moveItem={moveItem}
-                        status={i.status}
+                        status={s.status}
                       />
                     );
                   })}
@@ -56,4 +81,4 @@ const DndComponent = (props) => {
     </div>
   );
 };
-export default DndComponent;
+export default Kanban;

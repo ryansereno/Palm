@@ -1,27 +1,27 @@
 const data = [{
     id: 1,
-    status: "upcoming",
-    title: "Pool Refinishing",
+    status: "in progress",
+    title: "1",
     content: "Pool Refinishing"
 },{
     id: 2,
-    status: "upcoming",
-    title: "Balcony Renovation",
+    status: "in progress",
+    title: "2",
     content: "Balcony Renovation"
 },{
     id: 3,
-    status: "upcoming",
-    title: "Parking lot Paving",
+    status: "in progress",
+    title: "3",
     content: "Parking lot Paving"
 },{
     id: 4,
     status: "in progress",
-    title: "Exterior Painting",
+    title: "4",
     content: "Exterior Painting"
 },{
     id: 5,
     status: "completed",
-    title: "Impact Window Installation",
+    title: "5",
     content: "Impact Window Installation"
 },];
 

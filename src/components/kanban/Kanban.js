@@ -61,6 +61,7 @@ const Kanban = (props) => {
             <h2 className={"col-header"}>{s.status.toUpperCase()}</h2>
             <DropWrapper onDrop={onDrop} status={s.status}>
               <ColumnDropArea>
+                <AddCard />
                 {items
                   .filter((i) => i.status === s.status)
                   .map((i, idx) => {
@@ -77,7 +78,6 @@ const Kanban = (props) => {
                 
               </ColumnDropArea>
             </DropWrapper>
-                <AddCard />
           </div>
         );
       })}

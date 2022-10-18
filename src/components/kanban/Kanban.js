@@ -4,6 +4,7 @@ import Item from "./Item";
 import DropWrapper from "./DropWrapper";
 import ColumnDropArea from "./ColumnDropArea";
 import { data, statuses } from "../data/index";
+import AddCard from "./AddCard";
 
 const Kanban = (props) => {
   const [items, setItems] = useState(data);
@@ -73,8 +74,10 @@ const Kanban = (props) => {
                       />
                     );
                   })}
+                
               </ColumnDropArea>
             </DropWrapper>
+                <AddCard />
           </div>
         );
       })}

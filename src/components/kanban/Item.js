@@ -64,8 +64,6 @@ const Item = ({ item, index, moveItem, status }) => {
         onClick={onOpen}
       >
         <h3>{item.title}</h3>
-        <p>{index}</p>
-        <p>{status}</p>
       </div>
       <ModalWindow item={item} onClose={onClose} show={show} />
     </Fragment>

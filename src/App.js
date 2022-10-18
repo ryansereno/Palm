@@ -10,6 +10,7 @@ function App() {
     <DndProvider backend={HTML5Backend}>
       <header className="main-header">
         <img src={palmLogo} alt="" height={150} />
+        <h1>Galleon Projects</h1>
       </header>
       <Kanban />
     </DndProvider>

@@ -2,6 +2,8 @@ const data = [{
     id: 1,
     status: "upcoming",
     title: "Pool Refinishing",
+    dateStart: '10/2/2022',
+    dateEnd: '11/23/2022',
     content: "Ipsum obcaecati pariatur accusamus aliquam cum perferendis Repellat fuga fugit"
 },{
     id: 2,

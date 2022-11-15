@@ -1,10 +1,10 @@
 import { useState } from "react";
-import classes from "./Kanban.module.css";
 import Item from "./Item";
 import DropWrapper from "./DropWrapper";
 import ColumnDropArea from "./ColumnDropArea";
 import { data, statuses } from "../data/index";
 import AddCard from "./AddCard";
+import StyledKanban from "../styled/Kanban.styled"
 
 const Kanban = (props) => {
   const [items, setItems] = useState(data);
@@ -54,11 +54,11 @@ const Kanban = (props) => {
   };
 
   return (
-    <div className={classes.kanban}>
+    <StyledKanban>
       {statuses.map((s) => {
         return (
-          <div key={s.status} className={classes.column}>
-            <h2 className={"col-header"}>{s.status.toUpperCase()}</h2>
+          <div key={s.status} className="column">
+            <h2 className="col-header">{s.status.toUpperCase()}</h2>
             <DropWrapper onDrop={onDrop} status={s.status}>
               <ColumnDropArea>
                 <AddCard />
@@ -81,7 +81,7 @@ const Kanban = (props) => {
           </div>
         );
       })}
-    </div>
+    </StyledKanban>
   );
 };
 export default Kanban;

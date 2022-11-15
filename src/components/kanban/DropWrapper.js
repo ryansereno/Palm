@@ -2,7 +2,7 @@ import React from "react";
 import { useDrop } from "react-dnd";
 import ITEM_TYPE from "../data/types";
 import { statuses } from "../data";
-import classes from "./DropWrapper.module.css";
+import StyledDropWrapper from "../styled/DropWrapper.styled";
 
 const DropWrapper = ({ onDrop, children, status }) => {
   const [{ isOver }, drop] = useDrop({
@@ -22,9 +22,9 @@ const DropWrapper = ({ onDrop, children, status }) => {
   });
 
   return (
-    <div ref={drop} className={classes.wrapper}>
+    <StyledDropWrapper ref={drop}>
       {React.cloneElement(children, { isOver })}
-    </div>
+    </StyledDropWrapper>
   );
 };
 

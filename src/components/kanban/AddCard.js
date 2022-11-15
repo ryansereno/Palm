@@ -1,15 +1,12 @@
 import { Fragment } from 'react'
-import classes from './AddCard.module.css'
+import StyledAddCard from '../styled/AddCard.styled'
 const AddCard = () =>{
   return (
-<Fragment>
-      <div
-        className={classes.card}
+    <StyledAddCard
         onClick={()=>{}}
-      >
+    >
         <p>Add Item</p>
-      </div>
-    </Fragment>
+    </StyledAddCard>
   )
 
 }

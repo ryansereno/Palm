@@ -1,14 +1,10 @@
-import classes from './ColumnDropArea.module.css'
 import React from "react";
+import StyledColumnDropArea from "../styled/StyledColumnDropArea.styled";
 
 const Col = ({ isOver, children }) => {
-    const className = isOver ? classes["is-over"] : "";
-
-    return (
-        <div className={`${classes["drop-area"]} ${className}`}>
-            {children}
-        </div>
-    );
+  return (
+    <StyledColumnDropArea isOver={isOver}> {children}</StyledColumnDropArea>
+  ); //isOver is a custom param sent to the CSS logic within the styled component
 };
 
 export default Col;

@@ -1,9 +1,10 @@
+import styled from "styled-components";
 
-.card{
+const StyledAddCard = styled.div`
   background-color: white;
   color: gray;
   display: flex;
-  justify-content:center;
+  justify-content: center;
   align-items: center;
   padding: 0 10px;
   min-height: 30px;
@@ -11,7 +12,10 @@
   margin-bottom: 20px;
   border: 2px solid gray;
   transition: ease-out 300ms;
-}
-.card:hover{
-  background-color: #e5e5e5;
-}
+
+  &:hover {
+    background-color: #e5e5e5;
+    cursor:pointer;
+  }
+`;
+export default StyledAddCard;

@@ -1,3 +1,15 @@
+import styled from 'styled-components'
+
+const StyledKanban = styled.div`
+font-size:12px;
+  height: calc(100% - 150px);
+  padding-left: 30px;
+  padding-right: 30px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 30px;
+  max-width: 1400px;
+  margin: auto;
 
 .column {
   background-color: white;
@@ -16,3 +28,6 @@
 .column h2{
   margin-top: 0;
 }
+`
+
+export default StyledKanban

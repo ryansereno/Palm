@@ -13,6 +13,9 @@ function App() {
         <h1>Galleon Projects</h1>
       </header>
       <Kanban />
+      <footer>
+      <p>Made with love by the Palm🌴 Team</p>
+      </footer>
     </DndProvider>
   );
 }

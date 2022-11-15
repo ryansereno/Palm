@@ -1,8 +1,8 @@
 import React, { Fragment, useState, useRef } from "react";
 import { useDrag, useDrop } from "react-dnd";
-import ModalWindow from "./Window";
+import ModalWindow from "./ModalWindow";
 import ITEM_TYPE from "../data/types";
-import classes from "./Card.module.css";
+import StyledItemCard from '../styled/ItemCard.styled'
 
 const Item = ({ item, index, moveItem, status }) => {
   const ref = useRef(null);
@@ -57,14 +57,14 @@ const Item = ({ item, index, moveItem, status }) => {
 
   return (
     <Fragment>
-      <div
+      <StyledItemCard
         ref={ref}
-        style={{ opacity: isDragging ? 0 : 1 }} //removes item from list while draggin
-        className={classes.card}
+        isDragging={isDragging} //removes item from list while draggin
         onClick={onOpen}
       >
         <h3>{item.title}</h3>
-      </div>
+        <p>{item.content}</p>
+      </StyledItemCard>
       <ModalWindow item={item} onClose={onClose} show={show} />
     </Fragment>
   );

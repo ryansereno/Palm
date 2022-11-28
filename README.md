@@ -24,7 +24,7 @@ Project Management for Condos
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-<div>
+<div align="center">
     <img src="images/landing.png"  width="500">
 
 
